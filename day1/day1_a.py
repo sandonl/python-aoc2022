@@ -1,8 +1,5 @@
-input = open('input.txt', 'r')
-
-content = []
-for line in input.readlines():
-    content.append(line.strip())
+with open("input.in") as fin:
+    content = fin.read().strip().split("\n")
 
 curr_sum = 0 
 curr_max = 0
