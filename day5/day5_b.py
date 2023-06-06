@@ -1,6 +1,5 @@
 from collections import defaultdict
 
-
 with open("input.in") as fin:
     content = fin.read().split("\n\n")
 
@@ -17,8 +16,8 @@ for crate in crates[::-1]:
 for line in moves: 
     broken = line.split()
     move, frm, to = int(broken[1]), int(broken[3]), int(broken[5])
-    for i in range(move):
-        stacks[to].append(stacks[frm].pop())
+    stacks[to] = stacks[to] + stacks[frm][-move:]
+    stacks[frm] = stacks[frm][:-move]
 
 res = ""
 for stack in stacks:
